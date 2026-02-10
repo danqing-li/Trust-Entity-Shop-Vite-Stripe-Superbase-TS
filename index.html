@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elite Shop</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 导航 -->
+    <nav class="navbar">
+      <div class="nav-left">Elite Shop</div>
+      <div class="nav-right">
+        <button id="loginBtn" class="auth-btn">Zaloguj</button>
+        <button id="cartBtn" class="cart-btn">
+          🛒 <span id="cartCount">0</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- 产品页 -->
+    <main class="product-section">
+      <div class="product-hero">
+        <img src="/product.jpg" alt="Elite Product" class="product-image">
+        <div class="product-info">
+          <h1 class="product-title">Elite Product</h1>
+          <div class="product-price">299 PLN</div>
+          <button id="buyBtn" class="buy-button">➕ Dodaj do koszyka</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- 购物车抽屉 -->
+    <div id="cartDrawer" class="cart-drawer">
+      <div class="cart-header">
+        <h2>Koszyk</h2>
+        <button id="closeCart" class="close-button">×</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-footer">
+        <div class="total-row">
+          <span>Razem:</span>
+          <span id="totalPrice" class="total-price">0 PLN</span>
+        </div>
+        <button id="checkoutBtn" class="checkout-button" disabled>Płać Stripe</button>
+      </div>
+    </div>
+
+    <!-- 遮罩 -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- 登录模态框 -->
+    <div id="authModal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modalTitle">Zaloguj się</h3>
+          <button id="closeModal" class="close-button">×</button>
+        </div>
+        <form id="authForm">
+          <input type="email" id="email" placeholder="Email" required>
+          <input type="password" id="password" placeholder="Hasło">
+          <button type="submit" id="submitAuth">Zaloguj</button>
+        </form>
+        <div class="auth-toggle">
+          <button type="button" id="toggleAuth">Nie masz konta? Zarejestruj się</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script type="module" src="/main.ts"></script>
+</body>
+</html>
